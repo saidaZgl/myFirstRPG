@@ -10,6 +10,7 @@ var ninja2 = templateEnnemi.creerNinja();
 lesEnnemis.push(ninja1, ninja2, turtle1, turtle2, turtle3);
 
 var ennemiAleatoire = retourneEnnemiAleatoire();
+ennemiAleatoire.afficherEnnemi();
 
 function afficherLesEnnemis() {
   for (var i = 0; i < lesEnnemis.length; i++) {
