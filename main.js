@@ -1,28 +1,23 @@
 var joueur = require("./joueur");
 var templateEnnemi = require("./ennemi");
 
-joueur.afficherMonJoueur();
-joueur.levelUp();
-joueur.afficherMonJoueur();
-
 var lesEnnemis = [];
-
 var turtle1 = templateEnnemi.creerTurtle();
-lesEnnemis.push(turtle1);
 var turtle2 = templateEnnemi.creerTurtle();
-lesEnnemis.push(turtle2);
 var turtle3 = templateEnnemi.creerTurtle();
-lesEnnemis.push(turtle3);
-
 var ninja1 = templateEnnemi.creerNinja();
 var ninja2 = templateEnnemi.creerNinja();
-lesEnnemis.push(ninja1, ninja2);
+lesEnnemis.push(ninja1, ninja2, turtle1, turtle2, turtle3);
 
-// console.log(lesEnnemis);
-afficherLesEnnemis();
+var ennemiAleatoire = retourneEnnemiAleatoire();
 
 function afficherLesEnnemis() {
   for (var i = 0; i < lesEnnemis.length; i++) {
     lesEnnemis[i].afficherEnnemi(); //function créée dans fichier ennemi.js
   }
+}
+
+function retourneEnnemiAleatoire() {
+  var numeroEnnemiAleatoire = Math.floor(Math.random() * lesEnnemis.length);
+  return lesEnnemis[numeroEnnemiAleatoire];
 }
