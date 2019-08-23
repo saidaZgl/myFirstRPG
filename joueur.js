@@ -2,6 +2,7 @@ var joueur = {
   nom: "Rahan",
   description: "Le meilleur des guerriers",
   level: 1,
+  pv: 100,
   caracteres: {
     force: 5,
     agilite: 3,
@@ -11,6 +12,7 @@ var joueur = {
     console.log("Nom " + this.nom);
     console.log("Description " + this.description);
     console.log("Level " + this.level);
+    console.log("Points de vie " + this.pv);
     console.log("Force " + this.caracteres.force);
     console.log("Agilité " + this.caracteres.agilite);
     console.log("Intelligence " + this.caracteres.intell);
@@ -19,12 +21,15 @@ var joueur = {
     this.level++;
     //this.level = this.level + 1;
     //this.level += 1;
+    this.pv += 10;
+    this.caracteres.force += 2;
+    this.caracteres.agilite++;
   }
 };
-
-joueur.afficherMonJoueur();
-joueur.levelUp();
-joueur.afficherMonJoueur();
+/* L'appel des fonctions se fait dans le fichier main.js */
+// joueur.afficherMonJoueur();
+// joueur.levelUp();
+// joueur.afficherMonJoueur();
 
 // afficherInformationJoueur(joueur);
 
@@ -37,3 +42,5 @@ joueur.afficherMonJoueur();
 //     }
 //   }
 // }
+
+module.exports = joueur;
