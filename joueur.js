@@ -1,32 +1,39 @@
 var joueur = {
   nom: "Rahan",
   description: "Le meilleur des guerriers",
+  level: 1,
   caracteres: {
-    force: {
-      desc: {
-        info: "test",
-        valeur: "test2"
-      },
-      valeur: 25
-    },
+    force: 5,
     agilite: 3,
     intell: 2
+  },
+  afficherMonJoueur: function() {
+    console.log("Nom " + this.nom);
+    console.log("Description " + this.description);
+    console.log("Level " + this.level);
+    console.log("Force " + this.caracteres.force);
+    console.log("Agilité " + this.caracteres.agilite);
+    console.log("Intelligence " + this.caracteres.intell);
+  },
+  levelUp: function() {
+    this.level++;
+    //this.level = this.level + 1;
+    //this.level += 1;
   }
 };
-// console.log(joueur.nom);
-// console.log(joueur.description);
-// console.log(joueur.caracteres.force);
-// console.log(joueur.caracteres.agilite);
-// console.log(joueur.caracteres.intell);
 
-afficherInformationJoueur(joueur);
+joueur.afficherMonJoueur();
+joueur.levelUp();
+joueur.afficherMonJoueur();
 
-function afficherInformationJoueur(j) {
-  for (var propriete in j) {
-    if (typeof j[propriete] !== "object") {
-      console.log(propriete + " : " + j[propriete]);
-    } else {
-      afficherInformationJoueur(j[propriete]); //fonction de récursivité
-    }
-  }
-}
+// afficherInformationJoueur(joueur);
+
+// function afficherInformationJoueur(j) {
+//   for (var propriete in j) {
+//     if (typeof j[propriete] !== "object") {
+//       console.log(propriete + " : " + j[propriete]);
+//     } else {
+//       afficherInformationJoueur(j[propriete]); //fonction de récursivité
+//     }
+//   }
+// }
