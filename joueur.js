@@ -6,4 +6,10 @@ var joueur = {
   intell: 2
 };
 
-console.log("Le joueur s'appelle :", joueur.nom);
+afficherInformationJoueur(joueur);
+
+function afficherInformationJoueur(j) {
+  for (var propriete in j) {
+    console.log(propriete + " : " + j[propriete]);
+  }
+}
