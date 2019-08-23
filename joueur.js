@@ -2,7 +2,13 @@ var joueur = {
   nom: "Rahan",
   description: "Le meilleur des guerriers",
   caracteres: {
-    force: 5,
+    force: {
+      desc: {
+        info: "test",
+        valeur: "test2"
+      },
+      valeur: 25
+    },
     agilite: 3,
     intell: 2
   }
@@ -20,9 +26,7 @@ function afficherInformationJoueur(j) {
     if (typeof j[propriete] !== "object") {
       console.log(propriete + " : " + j[propriete]);
     } else {
-      for (var subPropriete in j[propriete]) {
-        console.log(subPropriete + " : " + j[propriete][subPropriete]);
-      }
+      afficherInformationJoueur(j[propriete]); //fonction de récursivité
     }
   }
 }
