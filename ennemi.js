@@ -5,12 +5,14 @@ var templateEnnemi = {
       description: "Tortue du sud",
       level: 1,
       force: 2,
+      pv: 5,
 
       afficherEnnemi: function() {
         var txt = "Nom : " + this.nom + "\n";
         txt += "Description : " + this.description + "\n";
         txt += "Level : " + this.level + "\n";
-        txt += "Force : " + this.force;
+        txt += "Force : " + this.force + "\n";
+        txt += "Points de vie : " + this.pv;
         console.log(txt);
       }
     };
@@ -23,12 +25,14 @@ var templateEnnemi = {
       description: "Ninja du nord",
       level: 2,
       force: 4,
+      pv: 7,
 
       afficherEnnemi: function() {
         var txt = "Nom : " + this.nom + "\n";
         txt += "Description : " + this.description + "\n";
         txt += "Level : " + this.level + "\n";
-        txt += "Force : " + this.force;
+        txt += "Force : " + this.force + "\n";
+        txt += "Points de vie : " + this.pv;
         console.log(txt);
       }
     };
@@ -46,3 +50,5 @@ turtle2.afficherEnnemi();
 
 var ninja1 = templateEnnemi.creerNinja();
 ninja1.afficherEnnemi();
+
+module.exports = templateEnnemi;
