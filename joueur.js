@@ -2,7 +2,7 @@ var joueur = {
   nom: "Rahan",
   description: "Le meilleur des guerriers",
   level: 1,
-  pv: 100,
+  pv: 5,
   caracteres: {
     force: 5,
     agilite: 3,
@@ -21,7 +21,7 @@ var joueur = {
     this.level++;
     //this.level = this.level + 1;
     //this.level += 1;
-    this.pv += 10;
+    this.pv += 2;
     this.caracteres.force += 2;
     this.caracteres.agilite++;
   }

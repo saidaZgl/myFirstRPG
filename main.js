@@ -12,7 +12,8 @@ var ninja2 = templateEnnemi.creerNinja();
 lesEnnemis.push(ninja1, ninja2, turtle1, turtle2, turtle3);
 
 var choix = 0;
-while (choix !== 9) {
+var gameOver = false;
+while (choix !== 9 && !gameOver) {
   afficherMenu();
   choix = parseInt(readline.question("Quelle est votre question ?"));
   switch (choix) {
@@ -56,4 +57,24 @@ function retourneEnnemiAleatoire() {
 function combattreEnnemi() {
   var ennemiAleatoire = retourneEnnemiAleatoire();
   ennemiAleatoire.afficherEnnemi();
+
+  joueur.pv -= ennemiAleatoire.force;
+  ennemiAleatoire.pv -= joueur.caracteres.force;
+
+  if (ennemiAleatoire.pv <= 0) {
+    console.log("L'ennemi est mort");
+    joueur.levelUp; //si ennemi est mort, on rajoute 1 level à notre joueur
+  }
+  if (joueur.pv <= 0) {
+    console.log("Tu es mort");
+    gameOver = true;
+  }
+}
+
+function detruireEnnemi(numero) {
+  for (var i = numero; numero < lesEnnemis.length; numero++) {
+    lesEnnemis[i] = lesEnnemis[i] + 1;
+    //la case de l'ennemi à supprimer va prendre la valeur de celui qui est à côté, c-à-d lesEnnemis de i + 1 => permet d'écraser par dessus l'ennemi sélectionné
+  }
+  lesEnnemis.pop(); //permet de supprimer la dernière case du tableau
 }
