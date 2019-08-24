@@ -26,6 +26,9 @@ while (choix !== 9 && !gameOver) {
     case 3:
       combattreEnnemi();
       break;
+    case 4:
+      ajouterEnnemi();
+      break;
     case 9:
       console.log("À bientôt");
       break;
@@ -39,6 +42,7 @@ function afficherMenu() {
   txt += "1 - Afficher les joueurs \n";
   txt += "2 - Afficher la liste des ennemis \n";
   txt += "3 - Combattre un ennemi \n";
+  txt += "4 - Ajouter un ennemi \n";
   txt += "9 - Quitter le programme";
   console.log(txt);
 }
@@ -78,4 +82,17 @@ function detruireEnnemi(numero) {
     //la case de l'ennemi à supprimer va prendre la valeur de celui qui est à côté, c-à-d lesEnnemis de i + 1 => permet d'écraser par dessus l'ennemi sélectionné
   }
   lesEnnemis.pop(); //permet de supprimer la dernière case du tableau
+}
+
+function ajouterEnnemi() {
+  var txt = "";
+  txt += "Quel ennemi voulez-vous ajouter ? \n";
+  txt += "1 : Ninja \n";
+  txt += "2 : Turtle \n";
+  var choixEnnemi = parseInt(readline.question(txt));
+  if (choixEnnemi === 1) {
+    lesEnnemis.push(templateEnnemi.creerNinja());
+  } else if (choixEnnemi === 2) {
+    lesEnnemis.push(templateEnnemi.creerTurtle());
+  }
 }
