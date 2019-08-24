@@ -49,13 +49,9 @@ function afficherLesEnnemis() {
   }
 }
 
-function retourneEnnemiAleatoire() {
-  var numeroEnnemiAleatoire = Math.floor(Math.random() * lesEnnemis.length);
-  return lesEnnemis[numeroEnnemiAleatoire];
-}
-
 function combattreEnnemi() {
-  var ennemiAleatoire = retourneEnnemiAleatoire();
+  var numeroEnnemiAleatoire = Math.floor(Math.random() * lesEnnemis.length);
+  var ennemiAleatoire = lesEnnemis[numeroEnnemiAleatoire];
   ennemiAleatoire.afficherEnnemi();
 
   joueur.pv -= ennemiAleatoire.force;
@@ -64,6 +60,11 @@ function combattreEnnemi() {
   if (ennemiAleatoire.pv <= 0) {
     console.log("L'ennemi est mort");
     joueur.levelUp; //si ennemi est mort, on rajoute 1 level à notre joueur
+    detruireEnnemi(numeroEnnemiAleatoire);
+    if (lesEnnemis.length <= 0) {
+      gameOver = true;
+      console.log("Vous avez gagné !");
+    }
   }
   if (joueur.pv <= 0) {
     console.log("Tu es mort");
